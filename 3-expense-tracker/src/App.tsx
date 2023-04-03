@@ -1,14 +1,10 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
-
+import ExpenseItem from "./components/ExpenseItem";
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <div className="App">
-      <h1>Create React App</h1>
+      <h1>Let's get Started</h1>
+      <ExpenseItem />
     </div>
   );
 }
