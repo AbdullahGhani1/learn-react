@@ -1,15 +1,23 @@
 import "./ExpenseItem.css";
-
-function ExpenseItem() {
-  const expenseDate: Date = new Date(2023, 4, 3);
-  const expenseTitle: string = "Car Insurance";
-  const expenseAmmount: number = 294.67;
+interface Props {
+  title: string;
+  amount: number;
+  date: Date;
+}
+function ExpenseItem(props: Props) {
+  const month = props.date.toLocaleString("en-US", { month: "long" });
+  const day = props.date.toLocaleString("en-US", { day: "2-digit" });
+  const year = props.date.getFullYear();
   return (
     <div className="expense-item">
-      <div>{expenseDate.toISOString()}</div>
+      <div>
+        <div>{month}</div>
+        <div>{day}</div>
+        <div>{year}</div>
+      </div>
       <div className="expense-item__description">
-        <h2>{expenseTitle}</h2>
-        <div className="expense-item__price">${expenseAmmount}</div>
+        <h2>{props.title}</h2>
+        <div className="expense-item__price">${props.amount}</div>
       </div>
     </div>
   );
