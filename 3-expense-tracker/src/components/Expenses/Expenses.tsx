@@ -3,13 +3,12 @@ import ExpenseItem from "./ExpenseItem";
 import "./Expenses.css";
 import Card from "../UI/Card";
 import ExpensesFilter from "./ExpensesFilter";
-import { ExpenseFilterData } from "../../interfaces";
 interface Props {
   items: {
     id: number;
-    expenseDate: Date;
-    expenseTitle: string;
-    expenseAmount: number;
+    date: Date;
+    title: string;
+    amount: number;
   }[];
 }
 export default function Expenses(props: Props) {
@@ -17,18 +16,21 @@ export default function Expenses(props: Props) {
   const filterChangeHandler = (selectedYear: string) => {
     setFilteredYear(selectedYear);
   };
+  const filteredExpenses = props.items.filter((expense) => {
+    return expense.date.getFullYear().toString() === filteredYear;
+  });
   return (
     <Card className="expenses">
       <ExpensesFilter
         onChangeFilter={filterChangeHandler}
         selected={filteredYear}
       />
-      {props.items.map((item) => (
+      {filteredExpenses.map((expense) => (
         <ExpenseItem
-          key={item.id}
-          date={item.expenseDate}
-          title={item.expenseTitle}
-          amount={item.expenseAmount}
+          key={expense.id}
+          date={expense.date}
+          title={expense.title}
+          amount={expense.amount}
         />
       ))}
     </Card>
