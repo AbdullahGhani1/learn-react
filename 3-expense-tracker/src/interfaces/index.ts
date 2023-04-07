@@ -4,6 +4,15 @@ export interface ExpenseData {
   expenseAmount: number;
   expenseDate: Date;
 }
+export interface ExpenseListProps {
+  items: {
+    id: number;
+    date: Date;
+    title: string;
+    amount: number;
+  }[];
+}
+
 export interface ExpenseFormData {
   title: string;
   amount: number;
