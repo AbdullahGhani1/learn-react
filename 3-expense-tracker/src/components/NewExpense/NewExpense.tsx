@@ -1,6 +1,7 @@
 import React from "react";
 import "./NewExpense.css";
-import ExpenseForm, { ExpenseFormData } from "./ExpenseForm";
+import ExpenseForm from "./ExpenseForm";
+import { ExpenseFormData } from "../../interfaces";
 interface ExpenseFormProps {
   onAddExpense: (expense: ExpenseFormData) => void;
 }

@@ -1,8 +1,8 @@
 import "./App.css";
 
 import Expenses from "./components/Expenses/Expenses";
-import { ExpenseFormData } from "./components/NewExpense/ExpenseForm";
 import NewExpense from "./components/NewExpense/NewExpense";
+import { ExpenseFormData } from "./interfaces";
 function App() {
   const expenses = [
     {

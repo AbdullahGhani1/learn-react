@@ -1,10 +1,7 @@
 import React, { useState } from "react";
 import "./ExpenseForm.css";
-export interface ExpenseFormData {
-  title: string;
-  amount: number;
-  date: Date;
-}
+import { ExpenseFormData } from "../../interfaces";
+
 interface ExpenseFormProps {
   onSaveExpenseData: (enteredExpenseData: ExpenseFormData) => void;
 }
