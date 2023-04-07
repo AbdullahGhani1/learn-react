@@ -25,14 +25,18 @@ export default function Expenses(props: Props) {
         onChangeFilter={filterChangeHandler}
         selected={filteredYear}
       />
-      {filteredExpenses.map((expense) => (
-        <ExpenseItem
-          key={expense.id}
-          date={expense.date}
-          title={expense.title}
-          amount={expense.amount}
-        />
-      ))}
+      {filteredExpenses.length !== 0 ? (
+        filteredExpenses.map((expense) => (
+          <ExpenseItem
+            key={expense.id}
+            date={expense.date}
+            title={expense.title}
+            amount={expense.amount}
+          />
+        ))
+      ) : (
+        <p>No Expenses Found.</p>
+      )}
     </Card>
   );
 }
