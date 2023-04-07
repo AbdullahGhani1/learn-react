@@ -16,27 +16,28 @@ export default function Expenses(props: Props) {
   const filterChangeHandler = (selectedYear: string) => {
     setFilteredYear(selectedYear);
   };
-  const filteredExpenses = props.items.filter((expense) => {
+  let filteredExpenses = props.items.filter((expense) => {
     return expense.date.getFullYear().toString() === filteredYear;
   });
+
+  let expensesContent: JSX.Element | JSX.Element[] = <p>No Expenses Found.</p>;
+  if (filteredExpenses.length > 0) {
+    expensesContent = filteredExpenses.map((expense) => (
+      <ExpenseItem
+        key={expense.id}
+        date={expense.date}
+        title={expense.title}
+        amount={expense.amount}
+      />
+    ));
+  }
   return (
     <Card className="expenses">
       <ExpensesFilter
         onChangeFilter={filterChangeHandler}
         selected={filteredYear}
       />
-      {filteredExpenses.length !== 0 ? (
-        filteredExpenses.map((expense) => (
-          <ExpenseItem
-            key={expense.id}
-            date={expense.date}
-            title={expense.title}
-            amount={expense.amount}
-          />
-        ))
-      ) : (
-        <p>No Expenses Found.</p>
-      )}
+      {expensesContent}
     </Card>
   );
 }
