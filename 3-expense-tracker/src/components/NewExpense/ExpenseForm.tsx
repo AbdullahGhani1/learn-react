@@ -4,6 +4,7 @@ import { ExpenseFormData } from "../../interfaces";
 
 interface ExpenseFormProps {
   onSaveExpenseData: (enteredExpenseData: ExpenseFormData) => void;
+  onCancel: () => void;
 }
 
 function ExpenseForm(props: ExpenseFormProps) {
@@ -31,6 +32,7 @@ function ExpenseForm(props: ExpenseFormProps) {
       date: new Date(enteredDate),
     };
     props.onSaveExpenseData(expenseData);
+    props.onCancel();
     setEnteredTitle("");
     setEnteredDate("");
     setEnteredAmount("");
@@ -68,6 +70,9 @@ function ExpenseForm(props: ExpenseFormProps) {
           />
         </div>
         <div className="new-expense__actions">
+          <button type="button" onClick={props.onCancel}>
+            Cancel
+          </button>
           <button type="submit">Add Expense</button>
         </div>
       </div>

@@ -4,6 +4,7 @@ import "./Expenses.css";
 import Card from "../UI/Card";
 import ExpensesFilter from "./ExpensesFilter";
 import ExpensesList from "./ExpensesList";
+import ExpenseChart from "./ExpenseChart";
 interface Props {
   items: {
     id: number;
@@ -20,13 +21,13 @@ export default function Expenses(props: Props) {
   let filteredExpenses = props.items.filter((expense) => {
     return expense.date.getFullYear().toString() === filteredYear;
   });
-  console.log("acascsac", typeof filteredExpenses);
   return (
     <Card className="expenses">
       <ExpensesFilter
         onChangeFilter={filterChangeHandler}
         selected={filteredYear}
       />
+      <ExpenseChart expenses={filteredExpenses} />
       <ExpensesList items={filteredExpenses} />
     </Card>
   );
