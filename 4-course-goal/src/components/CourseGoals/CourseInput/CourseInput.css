@@ -7,13 +7,22 @@
   font-weight: bold;
   margin-bottom: 0.5rem;
 }
-
+.form-control.invalid label {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: red;
+}
 .form-control input {
   border: 1px solid #ccc;
   line-height: 1.5rem;
   padding: 0 0.25rem;
 }
-
+.form-control.invalid input {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  border: 1px solid red;
+  background-color: #fdf;
+}
 .form-control input:focus {
   outline: none;
   background: #fad0ec;
