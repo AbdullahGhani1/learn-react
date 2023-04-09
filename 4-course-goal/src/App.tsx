@@ -16,8 +16,8 @@ function App() {
     });
   };
   const deleteItemHandler = (goalId: string) => {
-    setCourseGoals((prevState) => {
-      const updatedGoals = prevState.filter((goal) => goal.id !== goalId);
+    setCourseGoals((prevGoals) => {
+      const updatedGoals = prevGoals.filter((goal) => goal.id !== goalId);
       return updatedGoals;
     });
   };
