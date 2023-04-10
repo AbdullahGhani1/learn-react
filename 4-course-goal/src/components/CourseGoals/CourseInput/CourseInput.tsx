@@ -4,9 +4,13 @@ import Button from "../../Ui/Button";
 import styled from "styled-components";
 interface CousrseInputProps {
   onAddGoal: (goal: string) => void;
+  invalid?: boolean;
+}
+interface FormControlProps {
+  invalid?: boolean;
 }
 
-const FormControl: any = styled.div`
+const FormControl: any = styled.div<FormControlProps>`
   display: flex;
   flex-direction: column;
   margin: 0.5rem 0;
