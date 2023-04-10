@@ -1,47 +1,47 @@
-import React, { CSSProperties, ReactElement, useState } from "react";
-import "./CourseInput.css";
+import React, { useState } from "react";
 import Button from "../../Ui/Button";
-import styled from "styled-components";
+// import styled from "styled-components";
+import styles from "./CourseInput.module.css";
 interface CousrseInputProps {
   onAddGoal: (goal: string) => void;
   invalid?: boolean;
 }
-interface FormControlProps {
-  invalid?: boolean;
-}
+// interface FormControlProps {
+//   invalid?: boolean;
+// }
 
-const FormControl: any = styled.div<FormControlProps>`
-  display: flex;
-  flex-direction: column;
-  margin: 0.5rem 0;
-  & label {
-    font-weight: bold;
-    margin-bottom: 0.5rem;
-    color: ${(props) => (props.invalid ? "red" : "black")};
-  }
-  &.invalid label {
-    font-weight: bold;
-    margin-bottom: 0.5rem;
-    color: red;
-  }
-  & input {
-    border: 1px solid ${(props) => (props.invalid ? "red" : "#ccc")};
-    line-height: 1.5rem;
-    padding: 0 0.25rem;
-    background-color: ${(props) => (props.invalid ? "fdf" : "transparent")};
-  }
-  &.invalid input {
-    font-weight: bold;
-    margin-bottom: 0.5rem;
-    border: 1px solid red;
-    background-color: #fdf;
-  }
-  & input:focus {
-    outline: none;
-    background: #fad0ec;
-    border-color: #8b005d;
-  }
-`;
+// const FormControl: any = styled.div<FormControlProps>`
+//   display: flex;
+//   flex-direction: column;
+//   margin: 0.5rem 0;
+//   & label {
+//     font-weight: bold;
+//     margin-bottom: 0.5rem;
+//     color: ${(props) => (props.invalid ? "red" : "black")};
+//   }
+//   &.invalid label {
+//     font-weight: bold;
+//     margin-bottom: 0.5rem;
+//     color: red;
+//   }
+//   & input {
+//     border: 1px solid ${(props) => (props.invalid ? "red" : "#ccc")};
+//     line-height: 1.5rem;
+//     padding: 0 0.25rem;
+//     background-color: ${(props) => (props.invalid ? "fdf" : "transparent")};
+//   }
+//   &.invalid input {
+//     font-weight: bold;
+//     margin-bottom: 0.5rem;
+//     border: 1px solid red;
+//     background-color: #fdf;
+//   }
+//   & input:focus {
+//     outline: none;
+//     background: #fad0ec;
+//     border-color: #8b005d;
+//   }
+// `;
 
 function CourseInput(props: CousrseInputProps) {
   const [enteredValue, setEnteredValue] = useState("");
@@ -66,16 +66,18 @@ function CourseInput(props: CousrseInputProps) {
   // const labelStyle: CSSProperties = isValid === false ? { color: "red" } : {};
   return (
     <form onSubmit={formSubmitHandler}>
-      {/* <div className={`form-control ${!isValid && "invalid"}`}> */}
-      <FormControl invalid={!isValid}>
+      <div
+        className={`${styles["form-control"]} ${!isValid && styles.invalid}`}
+      >
+        {/* <FormControl invalid={!isValid}> */}
         <label>Course Goal</label>
         <input
           type="text"
           value={enteredValue}
           onChange={goalInputChangeHandler}
         />
-      </FormControl>
-      {/* </div> */}
+        {/* </FormControl> */}
+      </div>
       <Button type="submit">Add Goal</Button>
     </form>
   );
