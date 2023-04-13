@@ -43,7 +43,7 @@ const AddUsers = (props: AddUsersProps) => {
     setError(undefined);
   };
   return (
-    <Wrapper>
+    <React.Fragment>
       {error && (
         <ErrorModal
           title={error.title}
@@ -70,7 +70,7 @@ const AddUsers = (props: AddUsersProps) => {
           <Button type="submit">Add User</Button>
         </form>
       </Card>
-    </Wrapper>
+    </React.Fragment>
   );
 };
 
