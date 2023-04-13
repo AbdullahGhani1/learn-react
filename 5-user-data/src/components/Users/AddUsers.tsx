@@ -3,6 +3,7 @@ import Card from "../UI/Card";
 import styles from "./AddUsers.module.css";
 import Button from "../UI/Button";
 import ErrorModal from "../UI/ErrorModal";
+import Wrapper from "../../Helpers/Wrapper";
 interface AddUsersProps {
   onAddUser: (name: string, age: number) => void;
 }
@@ -42,7 +43,7 @@ const AddUsers = (props: AddUsersProps) => {
     setError(undefined);
   };
   return (
-    <div>
+    <Wrapper>
       {error && (
         <ErrorModal
           title={error.title}
@@ -69,7 +70,7 @@ const AddUsers = (props: AddUsersProps) => {
           <Button type="submit">Add User</Button>
         </form>
       </Card>
-    </div>
+    </Wrapper>
   );
 };
 
