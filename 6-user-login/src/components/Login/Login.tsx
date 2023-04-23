@@ -53,16 +53,19 @@ const Login = (props: LoginProps) => {
     isValid: null,
   });
 
-  // useEffect(() => {
-  //   const identifer = setTimeout(() => {
-  //     setFormIsValid(
-  //       enteredEmail.includes("@") && enteredPassword.trim().length > 6
-  //     );
-  //   }, 1000);
-  //   return () => {
-  //     clearTimeout(identifer);
-  //   };
-  // }, [enteredEmail, enteredPassword]);
+  const { isValid: emailIsValid } = emailState;
+  const { isValid: passwordIsValid } = passwordState;
+
+  useEffect(() => {
+    const identifer = setTimeout(() => {
+      console.log("Checking form validity!");
+      setFormIsValid(emailIsValid && passwordIsValid);
+    }, 1000);
+    return () => {
+      console.log("CLEANUP!");
+      clearTimeout(identifer);
+    };
+  }, [emailIsValid, passwordIsValid]);
   const emailChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
     // setEnteredEmail(event.target.value);
     dispatchEmail({
