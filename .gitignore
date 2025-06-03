@@ -1,1 +1,19 @@
+.DS_*
+*.log
+logs
+**/*.backup.*
+**/*.back.*
+
 node_modules
+bower_components
+
+*.sublime*
+# Environment files (containing secrets, API keys, credentials)
+.env
+*.env
+.env.*
+# Local configuration that shouldn't be shared
+*.local
+psd
+thumb
+sketch
