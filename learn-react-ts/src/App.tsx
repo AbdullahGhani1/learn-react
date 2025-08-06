@@ -1,4 +1,5 @@
 import "./App.css";
+import Alert from "./components/Alert";
 import ListGroup from "./components/ListGroup";
 import Message from "./components/Message";
 
@@ -26,6 +27,7 @@ function App() {
         heading="Cities"
         onSelectedItem={handleSelectedItem}
       />
+      <Alert>Hello World</Alert>
     </main>
   );
 }
