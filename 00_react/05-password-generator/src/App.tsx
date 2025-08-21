@@ -102,7 +102,7 @@ function App() {
               checked={numberAllowed}
               defaultChecked={numberAllowed}
               onChange={() => setNumberAllowed((prev) => !prev)}
-              className="w-full mt-4 cursor-pointer accent-blue-500"
+              className="w-full cursor-pointer accent-blue-500"
             />
             <label htmlFor="numberInput">Number</label>
           </div>
@@ -112,9 +112,9 @@ function App() {
               id="charInput"
               checked={characterAllowed}
               onChange={() => setCharacterAllowed((prev) => !prev)}
-              className="w-full mt-4 cursor-pointer accent-blue-500"
+              className="w-full cursor-pointer accent-blue-500"
             />
-            <label htmlFor="charInput">Special Characters</label>
+            <label htmlFor="charInput">Characters</label>
           </div>
         </div>
       </div>
