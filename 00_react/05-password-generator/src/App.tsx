@@ -1,10 +1,19 @@
-import { useCallback, useEffect, useState, type ChangeEvent } from "react";
+import {
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+  type ChangeEvent,
+  type MouseEvent,
+} from "react";
 
 function App() {
   const [password, setPassword] = useState<string>("");
   const [passwordLength, setPasswordLength] = useState<number>(8);
   const [numberAllowed, setNumberAllowed] = useState<boolean>(false);
   const [characterAllowed, setCharacterAllowed] = useState<boolean>(false);
+
+  const passwordRef = useRef<HTMLInputElement>(null);
 
   const generatePassword = useCallback(() => {
     const lowerCase: string = "abcdefghijklmnopqrstuvwxyz";
@@ -24,9 +33,21 @@ function App() {
     setPassword(generatePassword);
   }, [passwordLength, numberAllowed, characterAllowed, setPassword]);
 
+  const copyPasswordToClipboard = useCallback(
+    (event: MouseEvent<HTMLButtonElement>) => {
+      event.preventDefault();
+      if (passwordRef.current) {
+        passwordRef.current.select();
+        navigator.clipboard.writeText(password);
+      }
+    },
+    [password]
+  );
+
   useEffect(() => {
     generatePassword();
   }, [numberAllowed, characterAllowed, passwordLength, generatePassword]);
+
   return (
     <main className="flex flex-col justify-center items-center bg-black p-4 w-full">
       <h1 className="text-4xl font-bold text-center py-5">
@@ -43,11 +64,13 @@ function App() {
             type="text"
             id="password"
             value={password}
+            ref={passwordRef}
             placeholder="Password"
             className="text-gray-500 bg-white outline-none w-full py-1 px-3"
           />
           <button
             type="button"
+            onClick={copyPasswordToClipboard}
             className="outline-none bg-blue-700 text-white px-3 py-0.5 shrink-0 cursor-pointer hover:bg-blue-600"
           >
             Copy
