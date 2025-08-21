@@ -16,8 +16,6 @@ function App() {
     if (numberAllowed) allChars += numbers;
     if (characterAllowed) allChars += symbols;
 
-    console.log("allChars----------", allChars);
-
     let generatePassword: string = "";
     for (let i = 0; i < passwordLength; i++) {
       const randomIndex: number = Math.floor(Math.random() * allChars.length);
