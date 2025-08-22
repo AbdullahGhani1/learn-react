@@ -5,11 +5,11 @@ interface InputProps {
   amount: number;
   onAmountChange: (value: number) => void;
   onCurrencyChange: (value: string) => void;
-  currencyOptions: string[];
-  selectCurrency: string;
-  amountDisable: boolean;
-  currencyDisable: boolean;
-  className: string;
+  currencyOptions?: string[];
+  selectCurrency?: string;
+  amountDisable?: boolean;
+  currencyDisable?: boolean;
+  className?: string;
 }
 
 const Input = ({
@@ -26,7 +26,9 @@ const Input = ({
 }: InputProps) => {
   const amountInputId = useId();
   return (
-    <div className={`bg-white p-3 rounded-lg text-sm flex ${className}`}>
+    <div
+      className={`bg-white p-3 rounded-lg text-sm flex text-gray-500 ${className}`}
+    >
       <div className="w-1/2">
         <label
           htmlFor={amountInputId}
@@ -39,7 +41,7 @@ const Input = ({
           className="outline-none w-full bg-transparent py-1.5"
           type="number"
           placeholder="Amount"
-          value={amount}
+          value={amount.toFixed(2)}
           disabled={amountDisable}
           onChange={(e) => onAmountChange && onAmountChange(+e.target.value)}
         />
@@ -55,7 +57,7 @@ const Input = ({
           value={selectCurrency}
           disabled={currencyDisable}
           onChange={(e) => onCurrencyChange && onCurrencyChange(e.target.value)}
-          className="rounded-lg px-1 py-1 bg-gray-100 cursor-pointer outline-none"
+          className="rounded-lg px-1 py-1 bg-gray-100 cursor-pointer outline-none text-black"
         >
           {currencyOptions.map((currency: string) => (
             <option key={currency} value={currency}>
