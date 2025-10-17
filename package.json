@@ -1,0 +1,15 @@
+{
+  "name": "learn-react",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "workspaces": [
+    "projects/*"
+  ],
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  }
+}
