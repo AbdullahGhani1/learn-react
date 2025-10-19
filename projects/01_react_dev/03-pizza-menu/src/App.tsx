@@ -1,9 +1,15 @@
+import Footer from "./components/organisms/Footer";
+import Header from "./components/organisms/Header";
+import Menu from "./components/organisms/Menu";
+
 function App() {
   return (
     <>
-      <main>
-        <h1>React App</h1>
+      <Header />
+      <main className="container">
+        <Menu />
       </main>
+      <Footer />
     </>
   );
 }
