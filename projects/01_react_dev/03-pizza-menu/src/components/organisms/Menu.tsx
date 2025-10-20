@@ -1,12 +1,11 @@
-import React from "react";
 import Pizza from "../molecules/Pizza";
 
 const Menu = () => {
   return (
-    <div>
+    <main className="menu">
       <h2>Our menu</h2>
       <Pizza />
-    </div>
+    </main>
   );
 };
 

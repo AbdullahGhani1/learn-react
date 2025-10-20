@@ -4,13 +4,11 @@ import Menu from "./components/organisms/Menu";
 
 function App() {
   return (
-    <>
+    <div className="container">
       <Header />
-      <main className="container">
-        <Menu />
-      </main>
+      <Menu />
       <Footer />
-    </>
+    </div>
   );
 }
 
