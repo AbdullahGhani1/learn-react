@@ -4,6 +4,7 @@ const Menu = () => {
   return (
     <main className="menu">
       <h2>Our menu</h2>
+
       <Pizza />
     </main>
   );

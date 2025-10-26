@@ -5,12 +5,12 @@ const Pizza = () => {
   return (
     <ul className="pizzas">
       {pizzaData.map((item: Card) => (
-        <li className="pizza" key={item.name}>
+        <li className={`pizza ${item.soldOut && "sold-out"}`} key={item.name}>
           <img src={item.photoName} alt={item.name} />
           <div>
             <h3>{item.name}</h3>
             <p>{item.ingredients}</p>
-            <span>${item.price}</span>
+            <span>{item.soldOut ? "Sold Out" : "$" + item.price}</span>
           </div>
         </li>
       ))}
