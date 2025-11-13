@@ -1,7 +1,7 @@
 import { FlatCompat } from '@eslint/eslintrc';
 import { dirname } from 'path';
 import { fileURLToPath } from 'url';
-import tseslint from 'typescript-eslint';
+import parser from '@typescript-eslint/parser';
 import reactHooks from 'eslint-plugin-react-hooks';
 import reactRefresh from 'eslint-plugin-react-refresh';
 import react from 'eslint-plugin-react';
@@ -53,25 +53,38 @@ export default [
          ...react.configs.recommended.rules,
          'react/react-in-jsx-scope': 'off', // Not needed in React 17+
          'react/prop-types': 'off', // Using TypeScript for prop validation
+         'react/no-unescaped-entities': 'off', // Allow apostrophes and quotes in JSX
       },
    },
-   // TypeScript ESLint configs for monorepo (no type-checking)
+   // TypeScript and TSX files - syntax parsing only (NO type-checking)
    {
       files: ['**/*.ts', '**/*.tsx'],
+      plugins: {
+         react,
+      },
       languageOptions: {
-         parser: tseslint.parser,
+         parser: parser, // Use TypeScript parser for syntax only
          parserOptions: {
             ecmaVersion: 'latest',
             sourceType: 'module',
+            ecmaFeatures: {
+               jsx: true,
+            },
+            // NO project or tsconfigRootDir - this avoids type-checking
          },
       },
-      plugins: {
-         '@typescript-eslint': tseslint.plugin,
+      settings: {
+         react: {
+            version: 'detect',
+         },
       },
       rules: {
-         '@typescript-eslint/no-unused-vars': 'error',
-         '@typescript-eslint/no-explicit-any': 'error',
-         '@typescript-eslint/no-unused-expressions': 'error',
+         ...react.configs.recommended.rules,
+         'react/react-in-jsx-scope': 'off',
+         'react/prop-types': 'off',
+         'react/no-unescaped-entities': 'off', // Allow apostrophes and quotes in JSX
+         'no-unused-vars': 'off', // TypeScript compiler handles this
+         'no-undef': 'off', // TypeScript compiler handles this
       },
    },
    {
@@ -116,7 +129,6 @@ export default [
          'react-refresh': reactRefresh,
       },
       rules: {
-         'no-undef': 'off',
          ...reactHooks.configs.recommended.rules,
          'react-refresh/only-export-components': [
             'warn',

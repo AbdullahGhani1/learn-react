@@ -1,3 +1,13 @@
 {
-   "liveServer.settings.port": 5501
+   "liveServer.settings.port": 5501,
+   "eslint.workingDirectories": [{ "mode": "auto" }],
+   "eslint.validate": [
+      "javascript",
+      "javascriptreact",
+      "typescript",
+      "typescriptreact"
+   ],
+   "eslint.options": {
+      "overrideConfigFile": "./eslint.config.js"
+   }
 }
