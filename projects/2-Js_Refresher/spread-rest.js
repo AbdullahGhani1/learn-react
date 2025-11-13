@@ -7,13 +7,13 @@ The rest operator (...) is used to represent an indefinite number of arguments a
  parameters to capture all arguments passed to the function. Here's an example:
 */
 
-console.log("Rest Operator");
+console.log('Rest Operator');
 
 const filter = (...args) => {
-  return args.filter((el) => el === 1);
+   return args.filter((el) => el === 1);
 };
 
-console.log("filter 1 from args : ", filter(2, 3, 4, 1, 5, 3));
+console.log('filter 1 from args : ', filter(2, 3, 4, 1, 5, 3));
 
 /*
 Spread operator
@@ -24,13 +24,13 @@ array literals, and object literals. Here are some examples:
 // Function calls
 
 const greet = (firstName, lastName) => {
-  console.log(`Hello, ${firstName} ${lastName}`);
+   console.log(`Hello, ${firstName} ${lastName}`);
 };
-const name = ["Abdullah", "Ghani"];
+const name = ['Abdullah', 'Ghani'];
 greet(...name);
 
 // Array literals
-console.log("spread Operator");
+console.log('spread Operator');
 const numbers = [1, 2, 3, 4];
 const newNumbers = [...numbers, 5, 6];
 console.log(newNumbers);

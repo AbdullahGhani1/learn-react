@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import Button from "../../Ui/Button";
+import React, { useState } from 'react';
+import Button from '../../Ui/Button';
 // import styled from "styled-components";
-import styles from "./CourseInput.module.css";
+import styles from './CourseInput.module.css';
 interface CousrseInputProps {
-  onAddGoal: (goal: string) => void;
-  invalid?: boolean;
+   onAddGoal: (goal: string) => void;
+   invalid?: boolean;
 }
 // interface FormControlProps {
 //   invalid?: boolean;
@@ -44,43 +44,43 @@ interface CousrseInputProps {
 // `;
 
 function CourseInput(props: CousrseInputProps) {
-  const [enteredValue, setEnteredValue] = useState("");
-  const [isValid, setIsValid] = useState(true);
-  const formSubmitHandler = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    if (enteredValue.trim().length == 0) {
-      setIsValid(false);
-      return;
-    }
-    props.onAddGoal(enteredValue);
-    setEnteredValue("");
-  };
-  const goalInputChangeHandler = (
-    event: React.ChangeEvent<HTMLInputElement>
-  ) => {
-    if (event.target.value.length > 0) {
-      setIsValid(true);
-    }
-    setEnteredValue(event.target.value);
-  };
-  // const labelStyle: CSSProperties = isValid === false ? { color: "red" } : {};
-  return (
-    <form onSubmit={formSubmitHandler}>
-      <div
-        className={`${styles["form-control"]} ${!isValid && styles.invalid}`}
-      >
-        {/* <FormControl invalid={!isValid}> */}
-        <label>Course Goal</label>
-        <input
-          type="text"
-          value={enteredValue}
-          onChange={goalInputChangeHandler}
-        />
-        {/* </FormControl> */}
-      </div>
-      <Button type="submit">Add Goal</Button>
-    </form>
-  );
+   const [enteredValue, setEnteredValue] = useState('');
+   const [isValid, setIsValid] = useState(true);
+   const formSubmitHandler = (event: React.FormEvent<HTMLFormElement>) => {
+      event.preventDefault();
+      if (enteredValue.trim().length == 0) {
+         setIsValid(false);
+         return;
+      }
+      props.onAddGoal(enteredValue);
+      setEnteredValue('');
+   };
+   const goalInputChangeHandler = (
+      event: React.ChangeEvent<HTMLInputElement>
+   ) => {
+      if (event.target.value.length > 0) {
+         setIsValid(true);
+      }
+      setEnteredValue(event.target.value);
+   };
+   // const labelStyle: CSSProperties = isValid === false ? { color: "red" } : {};
+   return (
+      <form onSubmit={formSubmitHandler}>
+         <div
+            className={`${styles['form-control']} ${!isValid && styles.invalid}`}
+         >
+            {/* <FormControl invalid={!isValid}> */}
+            <label>Course Goal</label>
+            <input
+               type="text"
+               value={enteredValue}
+               onChange={goalInputChangeHandler}
+            />
+            {/* </FormControl> */}
+         </div>
+         <Button type="submit">Add Goal</Button>
+      </form>
+   );
 }
 
 export default CourseInput;

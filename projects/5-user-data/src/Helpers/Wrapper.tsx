@@ -1,9 +1,9 @@
 interface WrapperProps {
-  children: React.ReactNode;
+   children: React.ReactNode;
 }
 
 const Wrapper = (props: WrapperProps) => {
-  return <>props.children</>;
+   return <>props.children</>;
 };
 
 export default Wrapper;
