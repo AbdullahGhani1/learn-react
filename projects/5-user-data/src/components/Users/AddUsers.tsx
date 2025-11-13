@@ -1,7 +1,8 @@
 import React, { useRef, useState } from 'react';
-import Card from '../UI/Card';
+
 import styles from './AddUsers.module.css';
 import Button from '../UI/Button';
+import Card from '../UI/Card';
 import ErrorModal from '../UI/ErrorModal';
 interface AddUsersProps {
    onAddUser: (name: string, age: number) => void;

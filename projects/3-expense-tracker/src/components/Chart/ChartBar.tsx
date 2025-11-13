@@ -3,15 +3,7 @@ import './ChartBar.css';
 export default function ChartBar(props: {
    maxValue: number;
    value: number;
-   label:
-      | string
-      | number
-      | boolean
-      | React.ReactElement<any, string | React.JSXElementConstructor<any>>
-      | React.ReactFragment
-      | React.ReactPortal
-      | null
-      | undefined;
+   label: React.ReactNode;
 }) {
    let barFillHeight = '0%';
    if (props.maxValue > 0) {

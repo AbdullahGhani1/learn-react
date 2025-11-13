@@ -1,7 +1,8 @@
 import React from 'react';
+
 import styles from './ErrorModal.module.css';
-import Card from '../UI/Card';
 import Button from '../UI/Button';
+import Card from '../UI/Card';
 
 interface ErrorModalProps {
    title: string;

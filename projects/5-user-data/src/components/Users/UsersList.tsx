@@ -1,6 +1,7 @@
 import React from 'react';
-import Card from '../UI/Card';
+
 import styles from './UsersList.module.css';
+import Card from '../UI/Card';
 interface UsersListProps {
    users: { name: string; age: number; id: string }[];
 }

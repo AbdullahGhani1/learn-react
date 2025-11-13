@@ -1,6 +1,7 @@
 import React from 'react';
-import Chart from '../Chart/Chart';
+
 import { ExpenseListProps } from '../../interfaces';
+import Chart from '../Chart/Chart';
 interface ExpenseChartProps {
    expenses: ExpenseListProps['items'];
 }

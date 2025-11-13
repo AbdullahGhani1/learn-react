@@ -48,7 +48,8 @@ function App() {
 
    useEffect(() => {
       generatePassword();
-   }, [numberAllowed, characterAllowed, passwordLength, generatePassword]);
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+   }, [numberAllowed, characterAllowed, passwordLength]);
 
    return (
       <main className="flex flex-col justify-center items-center bg-black p-4 w-full">

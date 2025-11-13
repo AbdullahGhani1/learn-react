@@ -1,10 +1,11 @@
 import { useState } from 'react';
+
+import './App.css';
 import Alert from './components/Alert';
 import Button from './components/Button';
-import ListGroup from './components/ListGroup';
-import './App.css';
-import Like from './components/Like';
 import ExpandableText from './components/ExpandableText';
+import Like from './components/Like';
+import ListGroup from './components/ListGroup';
 
 function App() {
    const [alertVisible, setAlertVisible] = useState(false);

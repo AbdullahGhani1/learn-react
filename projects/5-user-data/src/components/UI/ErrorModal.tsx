@@ -1,7 +1,8 @@
 import React from 'react';
-import Modal from '../Modal/Modal';
-import Backdrop from '../Modal/Backdrop';
 import ReactDOM from 'react-dom';
+
+import Backdrop from '../Modal/Backdrop';
+import Modal from '../Modal/Modal';
 interface ErrorModalProps {
    title: string;
    message: string;

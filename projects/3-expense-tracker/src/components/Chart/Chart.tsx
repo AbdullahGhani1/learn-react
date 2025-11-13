@@ -1,11 +1,12 @@
 import React from 'react';
+
 import './Chart.css';
 import ChartBar from './ChartBar';
 interface DataPoint {
    label: string;
    value: number;
 }
-[];
+
 interface ChartProps {
    dataPoints: DataPoint[];
 }

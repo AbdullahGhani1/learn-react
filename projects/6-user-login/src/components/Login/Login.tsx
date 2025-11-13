@@ -1,8 +1,8 @@
 import React, { useEffect, useState, useReducer } from 'react';
 
-import Card from '../UI/Card/Card';
 import classes from './Login.module.css';
 import Button from '../UI/Button/Button';
+import Card from '../UI/Card/Card';
 
 interface LoginProps {
    onLogin: (email: string, password: string) => void;

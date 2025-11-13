@@ -1,4 +1,5 @@
 import React from 'react';
+
 import classes from './Navigation.module.css';
 interface NavigationProps {
    onLogout: () => void; // event handler for logout action

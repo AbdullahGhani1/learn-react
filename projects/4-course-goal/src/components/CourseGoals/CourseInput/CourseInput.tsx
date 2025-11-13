@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
+
+import styles from './CourseInput.module.css';
 import Button from '../../Ui/Button';
 // import styled from "styled-components";
-import styles from './CourseInput.module.css';
 interface CousrseInputProps {
    onAddGoal: (goal: string) => void;
    invalid?: boolean;
@@ -48,7 +49,7 @@ function CourseInput(props: CousrseInputProps) {
    const [isValid, setIsValid] = useState(true);
    const formSubmitHandler = (event: React.FormEvent<HTMLFormElement>) => {
       event.preventDefault();
-      if (enteredValue.trim().length == 0) {
+      if (enteredValue.trim().length === 0) {
          setIsValid(false);
          return;
       }
