@@ -15,16 +15,10 @@ function App() {
          <GridItem area="nav">
             <NavBar />
          </GridItem>
-         <GridItem
-            area="aside"
-            bg="gold"
-            display={{ base: 'none', lg: 'block' }}
-         >
+         <GridItem area="aside" display={{ base: 'none', lg: 'block' }}>
             Aside
          </GridItem>
-         <GridItem area="main" bg="blue">
-            Main
-         </GridItem>
+         <GridItem area="main">Main</GridItem>
       </Grid>
    );
 }

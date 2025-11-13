@@ -4,6 +4,7 @@ import { fileURLToPath } from 'url';
 import tseslint from 'typescript-eslint';
 import reactHooks from 'eslint-plugin-react-hooks';
 import reactRefresh from 'eslint-plugin-react-refresh';
+import react from 'eslint-plugin-react';
 
 // Recreate __dirname for ESM
 const __filename = fileURLToPath(import.meta.url);
@@ -30,8 +31,49 @@ export default [
       // 'plugin:tailwindcss/recommended',
       'prettier'
    ),
-   // TypeScript ESLint recommended configs
-   ...tseslint.configs.recommended,
+   // JavaScript and JSX files
+   {
+      files: ['**/*.js', '**/*.jsx'],
+      plugins: {
+         react,
+      },
+      languageOptions: {
+         parserOptions: {
+            ecmaFeatures: {
+               jsx: true,
+            },
+         },
+      },
+      settings: {
+         react: {
+            version: 'detect',
+         },
+      },
+      rules: {
+         ...react.configs.recommended.rules,
+         'react/react-in-jsx-scope': 'off', // Not needed in React 17+
+         'react/prop-types': 'off', // Using TypeScript for prop validation
+      },
+   },
+   // TypeScript ESLint configs for monorepo (no type-checking)
+   {
+      files: ['**/*.ts', '**/*.tsx'],
+      languageOptions: {
+         parser: tseslint.parser,
+         parserOptions: {
+            ecmaVersion: 'latest',
+            sourceType: 'module',
+         },
+      },
+      plugins: {
+         '@typescript-eslint': tseslint.plugin,
+      },
+      rules: {
+         '@typescript-eslint/no-unused-vars': 'error',
+         '@typescript-eslint/no-explicit-any': 'error',
+         '@typescript-eslint/no-unused-expressions': 'error',
+      },
+   },
    {
       rules: {
          'import/order': [
