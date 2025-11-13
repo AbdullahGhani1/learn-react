@@ -1,7 +1,12 @@
+import { Button, Heading, HStack } from "@chakra-ui/react";
+
 function App() {
   return (
     <>
-      <h1>Game Grid</h1>
+      <HStack>
+        <Heading>Game Grid</Heading>
+        <Button>Click Me</Button>
+      </HStack>
     </>
   );
 }
