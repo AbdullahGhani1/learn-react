@@ -156,115 +156,6 @@ Implemented a responsive grid in `App.tsx`:
 </Grid>
 ```
 
-### Step 7: Configure ESLint
-
-Setup ESLint with TypeScript and React rules:
-
-**File:** `eslint.config.js`
-
-- Configured typescript-eslint
-- Added React Hooks plugin
-- Setup React Refresh plugin
-- Configured import ordering rules
-
-### Step 8: Setup Code Quality Tools (Root Level)
-
-Configured project-wide code quality tools in the monorepo root:
-
-1. **Prettier Configuration**
-
-   ```json
-   {
-      "semi": true,
-      "singleQuote": true,
-      "tabWidth": 3,
-      "trailingComma": "es5"
-   }
-   ```
-
-2. **ESLint Configuration**
-   - Added typescript-eslint
-   - Configured eslint-plugin-react-hooks
-   - Setup eslint-plugin-react-refresh
-   - Added import order rules
-
-3. **Husky Pre-commit Hooks**
-
-   ```bash
-   # Install husky
-   bun add -d husky
-   bun run prepare
-
-   # Create pre-commit hook
-   echo "bunx lint-staged" > .husky/pre-commit
-   ```
-
-4. **Lint-staged Configuration**
-   ```json
-   {
-      "*.{ts,tsx,js,jsx}": ["eslint --fix", "prettier --write"],
-      "*.{css,md}": "prettier --write"
-   }
-   ```
-
-### Step 9: Git Workflow
-
-#### Created Feature Branch
-
-```bash
-# Created react-ts branch for TypeScript development
-git checkout -b react-ts
-
-# Made commits for various features
-git commit -m "install chakra UI"
-git commit -m "responsive Design"
-git commit -m "building a navbar"
-git commit -m "setup prettier"
-git commit -m "Setup husky"
-git commit -m "add Eslinter"
-```
-
-#### Merged to Main
-
-```bash
-# Cleaned working directory
-git submodule update --init
-git checkout main
-
-# Fast-forward merge
-git merge react-ts
-# Result: 286 files changed, 9,531 insertions(+), 5,988 deletions(-)
-```
-
-#### Created Production README
-
-```bash
-git commit -m "docs: add production-level README and fix CSS syntax error"
-```
-
-#### Pushed to Remote
-
-```bash
-git push origin main
-```
-
-#### Branch Cleanup
-
-```bash
-# Delete local branches
-git branch -d react-ts pizza-menu
-
-# Delete remote branches
-git push origin --delete react-ts pizza-menu
-```
-
-#### Created Project Branch
-
-```bash
-# Create dedicated branch for game-grid development
-git checkout -b project/game-grid
-```
-
 ## 📁 Project Structure
 
 ```
@@ -331,35 +222,6 @@ bun run lint
 bun run lint --fix
 ```
 
-## 🔧 Code Quality Setup
-
-### Pre-commit Hooks
-
-Every commit automatically:
-
-1. ✅ Runs ESLint and auto-fixes issues
-2. ✅ Formats code with Prettier
-3. ✅ Blocks commit if unfixable errors exist
-
-### ESLint Rules
-
-- **typescript-eslint** - TypeScript best practices
-- **react-hooks** - Enforces Rules of Hooks
-- **react-refresh** - Fast Refresh constraints
-- **import/order** - Consistent import ordering
-
-### Import Order Convention
-
-```typescript
-// 1. External dependencies
-import { Grid, GridItem } from '@chakra-ui/react';
-import { useState } from 'react';
-
-// 2. Internal imports
-import NavBar from './components/organism/NavBar';
-import './styles.css';
-```
-
 ## 🎓 What I Learned
 
 ### 1. **Chakra UI Mastery**
@@ -382,34 +244,6 @@ import './styles.css';
 - Interface definitions for UI components
 - Generic types in React components
 - TypeScript configuration for React
-
-### 4. **Modern Build Tools**
-
-- Vite for fast development and builds
-- Hot Module Replacement (HMR)
-- TypeScript path aliases
-- Optimized production builds
-
-### 5. **Code Quality Automation**
-
-- Pre-commit hooks with Husky
-- Automatic code formatting with Prettier
-- Linting with ESLint
-- Git workflow best practices
-
-### 6. **Git Workflow**
-
-- Feature branch development
-- Fast-forward merges
-- Branch management and cleanup
-- Semantic commit messages
-
-### 7. **Monorepo Management**
-
-- Workspace organization
-- Shared tooling configuration
-- Project isolation
-- Dependency management
 
 ## 🚀 Future Enhancements
 
@@ -452,39 +286,7 @@ import './styles.css';
 - [Chakra UI Examples](https://chakra-ui.com/examples)
 - [Vite Plugin Ecosystem](https://vitejs.dev/plugins/)
 
-## 🤝 Contributing
-
-This is a learning project, but suggestions and improvements are welcome!
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Make your changes
-4. Run linting (`bun run lint`)
-5. Commit your changes (pre-commit hooks will run)
-6. Push to the branch
-7. Open a Pull Request
-
 ## 📝 Development Notes
-
-### Design Decisions
-
-1. **Chakra UI over Material-UI**
-   - Better TypeScript support
-   - More flexible theming system
-   - Smaller bundle size
-   - Better accessibility defaults
-
-2. **Vite over Create React App**
-   - Faster development server
-   - Better build performance
-   - Native ES modules support
-   - More flexible configuration
-
-3. **Bun over npm/yarn**
-   - Faster package installation
-   - Built-in TypeScript support
-   - Better monorepo support
-   - All-in-one JavaScript runtime
 
 ### Performance Considerations
 
@@ -507,15 +309,3 @@ This is a learning project, but suggestions and improvements are welcome!
 
 - GitHub: [@AbdullahGhani1](https://github.com/AbdullahGhani1)
 - Project: [learn-react](https://github.com/AbdullahGhani1/learn-react)
-
-## 📄 License
-
-This project is part of a learning repository and is available under the MIT License.
-
----
-
-<div align="center">
-  <strong>Built with ❤️ while learning React and TypeScript</strong>
-  <br>
-  <sub>Part of the learn-react monorepo</sub>
-</div>
