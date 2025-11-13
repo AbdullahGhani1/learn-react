@@ -267,7 +267,6 @@ Configuration in `.lintstagedrc`:
 ### Branch Strategy
 
 - `main` - Production-ready code
-- `react-ts` - Development branch for TypeScript projects
 - Feature branches - For specific features or fixes
 
 ### Commit Standards
@@ -310,7 +309,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Abdullah Ghani**
 
-- GitHub: [@yourusername](https://github.com/yourusername)
+- GitHub: [@abdullahghani1](https://github.com/abdullahghani1)
 
 ## 🙏 Acknowledgments
 
